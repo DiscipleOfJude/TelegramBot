@@ -31,7 +31,10 @@ def verifyme(bot, update):
 
 def verifypic(bot, update):
     from pprint import pprint
-    pprint(update.message)
+    updates = update.message
+    for x in updates:
+        print x
+
     bot.sendPhoto(chat_id=chat_id, photo=last_file_id)
 
 def main():
