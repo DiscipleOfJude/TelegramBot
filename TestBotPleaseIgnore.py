@@ -31,6 +31,7 @@ def verifyme(bot, update):
 
 def verifypic(bot, update):
     last_file_id = update.message.file_id
+    print(last_file_id)
     bot.sendPhoto(chat_id=chat_id, photo=last_file_id)
 
 def main():
