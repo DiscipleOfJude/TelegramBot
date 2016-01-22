@@ -7,6 +7,7 @@ token_id = '171085474:AAGxtfIzCyGFJQJvNkC9TlEdvwq7zIEqJ4M'
 #######################################################
 
 from telegram import Updater
+import telegram
 import random
 
 
@@ -28,14 +29,20 @@ def verifyme(bot, update):
                     " an admin, nor are they verified. Do not trust them." +
                     "\n\n\n WE RESERVE THE RIGHT TO REFUSE ENTRANCE FROM OUR MAIN ROOM")
 
+def verifypic(bot, update):
+    last_file_id = update.message.file_id
+    bot.sendPhoto(chat_id=chat_id, photo=last_file_id)
+
 def main():
     updater = Updater(token=token_id)
     dispatcher = updater.dispatcher
     dispatcher.addTelegramCommandHandler('start', start)
     dispatcher.addTelegramCommandHandler('help', help)
     dispatcher.addTelegramCommandHandler('verifyme', verifyme)
+    dispatcher.addTelegramCommandHandler('verifypic', verifypic)
     updater.start_polling()
     updater.idle()
+    dispatcher.addTypeHandler()
 
 if __name__ == '__main__':
     main()
