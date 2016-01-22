@@ -6,7 +6,6 @@
 token_id = '171085474:AAGxtfIzCyGFJQJvNkC9TlEdvwq7zIEqJ4M'
 #######################################################
 
-from telegram import Updater
 import telegram
 import random
 
@@ -30,15 +29,13 @@ def verifyme(bot, update):
                     "\n\n\n WE RESERVE THE RIGHT TO REFUSE ENTRANCE FROM OUR MAIN ROOM")
 
 def verifypic(bot, update):
-    from pprint import pprint
-    updates = update.message
-    for x in updates:
-        print x
+   last_id = update.message.chat_id
+   print(last_id)
 
-    bot.sendPhoto(chat_id=chat_id, photo=last_file_id)
+    #bot.sendPhoto(chat_id=chat_id, photo=last_file_id)
 
 def main():
-    updater = Updater(token=token_id)
+    updater = telegram.Updater(token=token_id)
     dispatcher = updater.dispatcher
     dispatcher.addTelegramCommandHandler('start', start)
     dispatcher.addTelegramCommandHandler('help', help)
