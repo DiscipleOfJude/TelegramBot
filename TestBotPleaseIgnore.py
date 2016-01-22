@@ -30,8 +30,8 @@ def verifyme(bot, update):
                     "\n\n\n WE RESERVE THE RIGHT TO REFUSE ENTRANCE FROM OUR MAIN ROOM")
 
 def verifypic(bot, update):
-    last_file_id = update.message.file_id
-    print(last_file_id)
+    from pprint import pprint
+    pprint(update.message)
     bot.sendPhoto(chat_id=chat_id, photo=last_file_id)
 
 def main():
