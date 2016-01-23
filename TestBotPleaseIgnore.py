@@ -47,13 +47,21 @@ def verifypic(bot, update):
    # message = update.message
    # print(message)
    # print(last_id)
-   telegram.ForceReply(force_reply=True)
+   reply_markup = telegram.ForceReply(force_reply=True)
    bot.sendMessage(update.message.chat_id, text="Please attach your picture as a reply to this message, and I will " +
-                   "attempt to send it to the admins.")
+                   "attempt to send it to the admins.",reply_markup=reply_markup)
+   time.sleep(10)
+
+   # update = bot.getFile()
+   # print(update)
 
 
 
     #bot.sendPhoto(chat_id=chat_id, photo=last_file_id)
+
+def picForwarder(bot, update):
+    update = update.photo
+    print(update)
 
 def main():
     updater = telegram.Updater(token=token_id)
@@ -62,6 +70,7 @@ def main():
     dispatcher.addTelegramCommandHandler('help', help)
     dispatcher.addTelegramCommandHandler('verifyme', verifyme)
     dispatcher.addTelegramCommandHandler('verifypic', verifypic)
+    dispatcher.addTelegramMessageHandler(picForwarder)
     updater.start_polling()
     updater.idle()
 
