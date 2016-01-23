@@ -7,6 +7,7 @@ token_id = '171085474:AAGxtfIzCyGFJQJvNkC9TlEdvwq7zIEqJ4M'
 #######################################################
 
 import telegram
+import time
 import random
 
 
@@ -32,17 +33,9 @@ def verifyme(bot, update):
 
 
 def verifypic(bot, update):
-   file_id = bot.getUpdates()[-1].photo.file_id
-   print(file_id)
-   print(update.message.message_id)
-   last_id = update.message.message_id - 1
-   updates = telegram.Message(last_id,update.message.from_user.id,update.message.date,update.message.chat_id)
-   print(updates.photo)
-
-
-
-
-
+   time.sleep(2)
+   last_id = update.message.photo.file_id
+   print(last_id)
 
     #bot.sendPhoto(chat_id=chat_id, photo=last_file_id)
 
