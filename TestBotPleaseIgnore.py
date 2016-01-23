@@ -33,7 +33,9 @@ def verifyme(bot, update):
 
 
 def verifypic(bot, update):
-   time.sleep(2)
+   for x in range(1,5):
+       print(x)
+       time.sleep(1)
    last_id = update.message.photo.file_id
    print(last_id)
 
