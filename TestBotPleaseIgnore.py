@@ -40,7 +40,10 @@ def verifypic(bot, update):
    # last_id = update.message.photo.file_id
    message = update.message
    print(message)
-   print(last_id)
+   time.sleep(10)
+   message = update.message
+   print(message)
+   # print(last_id)
 
     #bot.sendPhoto(chat_id=chat_id, photo=last_file_id)
 
