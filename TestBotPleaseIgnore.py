@@ -13,8 +13,10 @@ import random
 def start(bot,update):
     bot.sendMessage(update.message.chat_id, text="Hi there!")
 
+
 def help(bot, update):
     bot.sendMessage(update.message.chat_id, text="Help? Help Yourself!")
+
 
 def verifyme(bot, update):
     code = random.randrange(10000,99999)
@@ -28,9 +30,10 @@ def verifyme(bot, update):
                     " an admin, nor are they verified. Do not trust them." +
                     "\n\n\n WE RESERVE THE RIGHT TO REFUSE ENTRANCE FROM OUR MAIN ROOM")
 
+
 def verifypic(bot, update):
    last_id = update.message.message_id - 1
-   updates = telegram.Message(last_id)
+   updates = telegram.Message(last_id,update.message.from_user.id,update.message.date,update.message.chat_id)
    print(updates)
 
 
