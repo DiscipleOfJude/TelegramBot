@@ -9,7 +9,7 @@ token_id = '171085474:AAGxtfIzCyGFJQJvNkC9TlEdvwq7zIEqJ4M'
 import telegram
 import time
 import random
-
+from pprint import pprint
 
 def start(bot,update):
     bot.sendMessage(update.message.chat_id, text="Hi there!")
@@ -33,35 +33,22 @@ def verifyme(bot, update):
 
 
 def verifypic(bot, update):
-   # time.sleep(5)
-   # for x in range(1,5):
-   #     print(x)
-   #     time.sleep(5)
-   # last_id = update.message.photo.file_id
-   # message = update.message
-   # print(message)
-   # time.sleep(10)
-   # message = update.message
-   # print(message)
-   # time.sleep(10)
-   # message = update.message
-   # print(message)
-   # print(last_id)
    reply_markup = telegram.ForceReply(force_reply=True)
    bot.sendMessage(update.message.chat_id, text="Please attach your picture as a reply to this message, and I will " +
                    "attempt to send it to the admins.",reply_markup=reply_markup)
-   time.sleep(10)
-
-   # update = bot.getFile()
-   # print(update)
 
 
+def pic_forwarder(bot, update):
+    print("caught something")
+    if update.message.photo[0].file_id:
+        print("found a pic")
+        verify_pic  = (update.message.photo[0].file_id)
+        print(verify_pic)
+    else:
+        print("didn't find a picture :/")
+        updates = update.message
+        print(updates)
 
-    #bot.sendPhoto(chat_id=chat_id, photo=last_file_id)
-
-def picForwarder(bot, update):
-    update = update.photo
-    print(update)
 
 def main():
     updater = telegram.Updater(token=token_id)
@@ -70,7 +57,7 @@ def main():
     dispatcher.addTelegramCommandHandler('help', help)
     dispatcher.addTelegramCommandHandler('verifyme', verifyme)
     dispatcher.addTelegramCommandHandler('verifypic', verifypic)
-    dispatcher.addTelegramMessageHandler(picForwarder)
+    dispatcher.addTelegramMessageHandler(pic_forwarder)
     updater.start_polling()
     updater.idle()
 
