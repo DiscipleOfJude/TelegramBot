@@ -38,14 +38,20 @@ def verifypic(bot, update):
    #     print(x)
    #     time.sleep(5)
    # last_id = update.message.photo.file_id
-   message = update.message
-   print(message)
-   time.sleep(10)
-   message = update.message
-   print(message)
-   time.sleep(10)
-   print(update.message)
+   # message = update.message
+   # print(message)
+   # time.sleep(10)
+   # message = update.message
+   # print(message)
+   # time.sleep(10)
+   # message = update.message
+   # print(message)
    # print(last_id)
+   telegram.ForceReply(force_reply=True)
+   bot.sendMessage(update.message.chat_id, text="Please attach your picture as a reply to this message, and I will " +
+                   "attempt to send it to the admins.")
+
+
 
     #bot.sendPhoto(chat_id=chat_id, photo=last_file_id)
 
