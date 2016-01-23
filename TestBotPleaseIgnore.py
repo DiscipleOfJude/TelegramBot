@@ -32,6 +32,8 @@ def verifyme(bot, update):
 
 
 def verifypic(bot, update):
+   file_id = bot.getUpdates()[-1].photo.file_id
+   print(file_id)
    print(update.message.message_id)
    last_id = update.message.message_id - 1
    updates = telegram.Message(last_id,update.message.from_user.id,update.message.date,update.message.chat_id)
