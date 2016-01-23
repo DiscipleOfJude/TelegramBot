@@ -33,10 +33,13 @@ def verifyme(bot, update):
 
 
 def verifypic(bot, update):
-   for x in range(1,5):
-       print(x)
-       time.sleep(1)
-   last_id = update.message.photo.file_id
+   # time.sleep(5)
+   # for x in range(1,5):
+   #     print(x)
+   #     time.sleep(5)
+   # last_id = update.message.photo.file_id
+   message = update.message
+   print(message)
    print(last_id)
 
     #bot.sendPhoto(chat_id=chat_id, photo=last_file_id)
