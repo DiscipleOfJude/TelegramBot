@@ -29,8 +29,13 @@ def verifyme(bot, update):
                     "\n\n\n WE RESERVE THE RIGHT TO REFUSE ENTRANCE FROM OUR MAIN ROOM")
 
 def verifypic(bot, update):
-   last_id = update.message.message_id
-   print(last_id)
+   last_id = update.message.message_id - 1
+   updates = telegram.Message(last_id)
+   print(updates)
+
+
+
+
 
     #bot.sendPhoto(chat_id=chat_id, photo=last_file_id)
 
@@ -43,7 +48,7 @@ def main():
     dispatcher.addTelegramCommandHandler('verifypic', verifypic)
     updater.start_polling()
     updater.idle()
-    
+
 
 if __name__ == '__main__':
     main()
